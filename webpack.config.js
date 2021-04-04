@@ -26,6 +26,9 @@ module.exports = (env, argv) => {
           options: { name: '/img/[name].[ext]' }
         }
       ]
+    },
+    resolve: {
+      extensions: [".js", ".jsx"],
     }
   };
 };
