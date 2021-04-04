@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+import { TextField, Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,37 +12,34 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function DataChat() {
-    
-    const [startAvailable, setStart] = useState(true)
-    const [sendAvailable, setSend] = useState(false)
-    const [hangupAvailable, setHangup] = useState(false)
-    const classes = useStyles();
+  const [startAvailable, setStart] = useState(true);
+  const [sendAvailable, setSend] = useState(false);
+  const [hangupAvailable, setHangup] = useState(false);
+  const classes = useStyles();
 
-    return (
-        <div>
-            <form className={classes.root} noValidate autoComplete="off">
-                
-                <TextField id="standard-basic" label="Identifiant" />
-                <TextField id="standard-basic" label="Destinataire" />
-                <Button onClick={start} disabled={!startAvailable}>
-                    Démarrer
-                </Button>
+  return (
+    <div>
+      <form className={classes.root} noValidate autoComplete="off">
 
-                <TextField id="standard-basic" label="Message" />
-                <Button onClick={send} disabled={!callAvailable}>
-                    Envoyer
-                </Button>
-                
-                <div>
+        <TextField id="standard-basic" label="Identifiant" />
+        <TextField id="standard-basic" label="Destinataire" />
+        <Button onClick={start} disabled={!startAvailable}>
+          Démarrer
+        </Button>
 
-                </div>
+        <TextField id="standard-basic" label="Message" />
+        <Button onClick={send} disabled={!callAvailable}>
+          Envoyer
+        </Button>
 
-                <Button onClick={hangUp} disabled={!hangupAvailable}>
-                    Hang Up
-                </Button>
-            </form>
-        </div>
-    )
+        <div />
+
+        <Button onClick={hangUp} disabled={!hangupAvailable}>
+          Hang Up
+        </Button>
+      </form>
+    </div>
+  );
 }
 
-export default DataChat
+export default DataChat;
