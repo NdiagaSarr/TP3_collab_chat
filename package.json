@@ -1,0 +1,48 @@
+{
+  "name": "tp3-chat",
+  "version": "1.0.0",
+  "description": "Application de chat multicollab",
+  "main": "express.js",
+  "dependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "eslint-loader": "^4.0.2",
+    "express": "^4.17.1",
+    "file-loader": "^6.2.0",
+    "material-ui": "^0.20.2",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.5.2",
+    "react-dom": "^17.0.2",
+    "webpack": "^5.30.0",
+    "webpack-cli": "^4.6.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "html-webpack-plugin": "^5.3.1"
+  },
+  "scripts": {
+    "dev": "webpack --mode development && node server/express.js",
+    "build": "webpack --mode production",
+    "start": "node server/express.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NdiagaSarr/TP3_collab_chat.git"
+  },
+  "author": "Ndiagadroid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NdiagaSarr/TP3_collab_chat/issues"
+  },
+  "homepage": "https://github.com/NdiagaSarr/TP3_collab_chat#readme"
+}
