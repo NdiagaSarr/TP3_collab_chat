@@ -1,81 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { TextField, Button } from '@material-ui/core';
-import { Peer } from 'peer';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& > *': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
+    margin: theme.spacing(),
   },
 }));
 
-let peer = null;
-let connexion = null;
-
-const initpeer = (localID) => {
-  console.log('start');
-
-  peer = new Peer(localID, {
-    host: 'localhost',
-    port: 3000,
-    path: '/myapp',
-  });
-
-  peer.on('open', (id) => {
-    console.log('Mon identifiant est: ', id);
-  });
-};
-
-const initconn = function initconn(id) {
-  connexion = peer.connect(id);
-};
-
 function DataChat() {
-  const [startAvailable, setStart] = useState(true);
-  const [sendAvailable, setSend] = useState(false);
-  const [hangupAvailable, setHangup] = useState(false);
-  const [callAvailable, setCall] = useState(false);
-
   const classes = useStyles();
 
-  const onStart = function Start(id) {
-    setCall(true);
-    setStart(false);
-    initpeer(id);
-  };
-
-  const onCall = function Call(id) {
-    setSend(true);
-    setHangup(true);
-    setCall(false);
-    initconn(id);
-  };
-
-  const onSend = function Send(message) {
-    connexion.send(message);
-  };
-
   return (
-    <div>
-      <form className={classes.root} noValidate autoComplete="off">
-
-        <TextField id="standard-basic" label="Identifiant" />
-        <TextField id="standard-basic" label="Destinataire" />
-        <Button onClick={onStart} disabled={!startAvailable}>
+    <div className={classes.root}>
+      <form className={classes.root}>
+        <h1 className={classes.root}> Espace de communication </h1>
+        <TextField label="Identifiant" className={classes.root} />
+        <TextField label="Destinataire" className={classes.root} />
+        <br />
+        <Button variant="contained" className={classes.root}>
           Démarrer
         </Button>
-
-        <TextField id="standard-basic" label="Message" />
-        <Button onClick={onSend} disabled={!callAvailable}>
+        <br />
+        <TextField label="Message" className={classes.root} />
+        <br />
+        <Button variant="contained" color="primary" className={classes.root}>
           Envoyer
         </Button>
-
-        <div />
-
-        <Button onClick={onCall} disabled={!hangupAvailable}>
+        <Button variant="contained" color="secondary" className={classes.root}>
           Hang Up
         </Button>
       </form>
